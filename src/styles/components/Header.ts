@@ -16,13 +16,18 @@ export const Container = styled.header<ContainerProps>`
 export const Wrapper = styled.div`
   width: 80%;
   height: 6rem;
+  max-width: 1280px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 `;
 
-export const RescrictButton = styled.button`
+export const RescrictButton = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   border: 0;
   height: 3rem;
   width: 11rem;

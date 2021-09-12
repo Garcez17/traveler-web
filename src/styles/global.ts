@@ -23,7 +23,7 @@ export default createGlobalStyle`
   body {
     background: var(--background);
     color: var(--gray-500);
-    font: 400 1rem 'Barlow', Roboto, 'Heebo', sans-serif;
+    font: 400 1rem 'Heebo', 'Barlow', Roboto, sans-serif;
   }
 
   button {
@@ -32,6 +32,11 @@ export default createGlobalStyle`
 
   a {
     cursor: pointer;
+    text-decoration: none;
+  }
+
+  input {
+    font: 400 1rem 'Heebo', sans-serif;
   }
 
   @media (max-width: 1080px) {

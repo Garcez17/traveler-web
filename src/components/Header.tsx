@@ -16,7 +16,7 @@ export function Header({ hasBorder = true }: HeaderProps): JSX.Element {
     <Container hasBorder={hasBorder}>
       <Wrapper>
         <Logo />
-        <Link href="/login">
+        <Link href="/login" passHref>
           <RescrictButton>Acesso Restrito</RescrictButton>
         </Link>
       </Wrapper>
