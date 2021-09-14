@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
+import { useAuth } from '../hooks/useAuth';
+
 import { OrangeButton } from '../components/OrangeButton';
 import {
   Container,
@@ -30,7 +32,9 @@ export default function Login(): JSX.Element {
   const [showEmailLabel, setShowEmailLabel] = useState(false);
   const [showPasswordLabel, setShowPasswordLabel] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const [test, setIsCheckboxChecked] = useState(false);
+  const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
+
+  const { signIn } = useAuth();
 
   const {
     register,
@@ -78,11 +82,14 @@ export default function Login(): JSX.Element {
   }
 
   function handleToogleCheckbox() {
-    setIsCheckboxChecked(!test);
+    setIsCheckboxChecked(!isCheckboxChecked);
   }
 
-  function handleLogin({ email, password }: SignInCredentials) {
-    console.log({ email, password });
+  async function handleLogin({ email, password }: SignInCredentials) {
+    await signIn({
+      email,
+      password,
+    });
   }
 
   return (
@@ -147,7 +154,7 @@ export default function Login(): JSX.Element {
                 />
 
                 <label htmlFor="remember">
-                  <Checkbox isCheckboxChecked={test}>
+                  <Checkbox isCheckboxChecked={isCheckboxChecked}>
                     <CheckIcon />
                   </Checkbox>
                   Lembrar-me

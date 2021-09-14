@@ -39,6 +39,19 @@ export default createGlobalStyle`
     font: 400 1rem 'Heebo', sans-serif;
   }
 
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active
+  {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+  }
+
+  input:-webkit-autofill
+  {
+    -webkit-text-fill-color: var(--gray-500) !important;
+  }
+
   @media (max-width: 1080px) {
     html {
       font-size: 93.75%;
