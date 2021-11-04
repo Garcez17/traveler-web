@@ -1,4 +1,5 @@
-import Image from 'next/image';
+import Link from 'next/link';
+import { AddressBox } from '../components/AddressBox';
 
 import { Header } from '../components/Header';
 import { OrangeButton } from '../components/OrangeButton';
@@ -9,14 +10,12 @@ import {
   Presentation,
   Cities,
   Column,
-  City,
-  Info,
 } from '../styles/pages/Home';
 
 export default function Home(): JSX.Element {
   return (
     <Container>
-      <Header hasBorder={false} />
+      <Header hasBorder={false} hasActionBar={false} />
       <Main>
         <Presentation>
           <h1>Viva uma grande aventura</h1>
@@ -24,54 +23,23 @@ export default function Home(): JSX.Element {
             Descubra locais incríveis para se visitar em cidades maravilhosas do
             Brasil!
           </span>
-          <OrangeButton>Descobrir todos os lugares</OrangeButton>
+          <Link href="/lista">
+            <a>
+              <OrangeButton>Descobrir todos os lugares</OrangeButton>
+            </a>
+          </Link>
         </Presentation>
         <Cities>
           <Column position="left">
-            <City>
-              <Image src="/blumenau.png" width={270} height={220} />
-              <Info>
-                <strong>Florianópolis</strong>
-                <span>98 locais</span>
-              </Info>
-            </City>
-            <City>
-              <Image src="/blumenau.png" width={270} height={220} />
-              <Info>
-                <strong>Florianópolis</strong>
-                <span>98 locais</span>
-              </Info>
-            </City>
-            <City>
-              <Image src="/blumenau.png" width={270} height={220} />
-              <Info>
-                <strong>Florianópolis</strong>
-                <span>98 locais</span>
-              </Info>
-            </City>
+            <AddressBox size="home" />
+            <AddressBox size="home" />
+            <AddressBox size="home" />
           </Column>
           <Column position="right">
-            <City>
-              <Image src="/blumenau.png" width={270} height={220} />
-              <Info>
-                <strong>Florianópolis</strong>
-                <span>98 locais</span>
-              </Info>
-            </City>
-            <City>
-              <Image src="/blumenau.png" width={270} height={220} />
-              <Info>
-                <strong>Florianópolis</strong>
-                <span>98 locais</span>
-              </Info>
-            </City>
-            <City>
-              <Image src="/blumenau.png" width={270} height={220} />
-              <Info>
-                <strong>Florianópolis</strong>
-                <span>98 locais</span>
-              </Info>
-            </City>
+            <AddressBox size="home" />
+            <AddressBox size="home" />
+            <AddressBox size="home" />
+            <AddressBox size="home" />
           </Column>
         </Cities>
       </Main>
