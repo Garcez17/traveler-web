@@ -1,8 +1,9 @@
 import Link from 'next/link';
-import { FiArrowLeft, FiSearch, FiX } from 'react-icons/fi';
-import { useForm } from 'react-hook-form';
 import React, { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { FiArrowLeft, FiSearch, FiX } from 'react-icons/fi';
 
+import { useRouter } from 'next/router';
 import Logo from '../../assets/logo.svg';
 import { useSearch } from '../../hooks/useSearch';
 import { HeaderProps, SearchText } from './interface';
@@ -18,6 +19,7 @@ import {
 
 export function Header({ type = 'DEFAULT' }: HeaderProps): JSX.Element {
   const { register, watch, reset } = useForm<SearchText>();
+  const router = useRouter();
 
   const { changeSearchText } = useSearch();
 
@@ -30,7 +32,11 @@ export function Header({ type = 'DEFAULT' }: HeaderProps): JSX.Element {
   return (
     <Container hasBorder={type !== 'DEFAULT'}>
       <Wrapper>
-        <Logo />
+        <Link href="/">
+          <a>
+            <Logo />
+          </a>
+        </Link>
 
         {type !== 'DEFAULT' && (
           <ActionBar alignCenter={type !== 'BACK'}>
@@ -47,7 +53,7 @@ export function Header({ type = 'DEFAULT' }: HeaderProps): JSX.Element {
               </SearchInput>
             ) : (
               <>
-                <BackButton>
+                <BackButton onClick={() => router.back()}>
                   <FiArrowLeft />
                 </BackButton>
 

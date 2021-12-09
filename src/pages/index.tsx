@@ -15,7 +15,7 @@ import {
 export default function Home(): JSX.Element {
   return (
     <Container>
-      <Header hasBorder={false} hasActionBar={false} />
+      <Header />
       <Main>
         <Presentation>
           <h1>Viva uma grande aventura</h1>

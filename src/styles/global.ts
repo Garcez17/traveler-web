@@ -37,6 +37,7 @@ export default createGlobalStyle`
 
   button {
     cursor: pointer;
+    font-family: 'Heebo';
   }
 
   a {
@@ -59,6 +60,18 @@ export default createGlobalStyle`
   input:-webkit-autofill
   {
     -webkit-text-fill-color: var(--gray-500) !important;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--gray-300);
+
+    :hover {
+      background: var(--gray-500);
+    }
   }
 
   @media (max-width: 1080px) {
