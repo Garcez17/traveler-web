@@ -31,15 +31,15 @@ export default function Home(): JSX.Element {
         </Presentation>
         <Cities>
           <Column position="left">
-            <AddressBox size="home" />
-            <AddressBox size="home" />
-            <AddressBox size="home" />
+            <AddressBox type="home" />
+            <AddressBox type="home" />
+            <AddressBox type="home" />
           </Column>
           <Column position="right">
-            <AddressBox size="home" />
-            <AddressBox size="home" />
-            <AddressBox size="home" />
-            <AddressBox size="home" />
+            <AddressBox type="home" />
+            <AddressBox type="home" />
+            <AddressBox type="home" />
+            <AddressBox type="home" />
           </Column>
         </Cities>
       </Main>

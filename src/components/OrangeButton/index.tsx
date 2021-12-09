@@ -1,10 +1,6 @@
-import { Container } from '../styles/components/OrangeButton';
+import { Container } from '../../styles/components/OrangeButton';
 
-type OrangeButtonProps = {
-  children: string;
-  isActive?: boolean;
-  type?: 'button' | 'submit' | 'reset';
-};
+import { OrangeButtonProps } from './interface';
 
 export function OrangeButton({
   children,

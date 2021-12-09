@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
 type ContainerProps = {
-  size: 'home' | 'default';
-  type: 'default' | 'editable' | 'info';
+  isLarge: boolean;
+  type: 'default' | 'editable' | 'info' | 'home';
   available?: boolean;
 };
 
 export const Container = styled.div<ContainerProps>`
-  width: ${props => (props.size === 'default' ? '16rem' : '19rem')};
+  width: ${props => (props.isLarge ? '19rem' : '16rem')};
   opacity: ${props => (props.available ? '1' : '0.5')};
   cursor: pointer;
   position: relative;
@@ -35,7 +35,7 @@ export const InfoContainer = styled.section`
 `;
 
 type InfoProps = {
-  size: 'home' | 'default';
+  isLarge: boolean;
 };
 
 export const Info = styled.div<InfoProps>`
@@ -50,7 +50,7 @@ export const Info = styled.div<InfoProps>`
 
   strong {
     font-weight: 600;
-    font-size: ${props => (props.size === 'default' ? '1.25rem' : '1.5rem')};
+    font-size: ${props => (props.isLarge ? '1.5rem' : '1.25rem')};
     color: var(--blue-800);
   }
 

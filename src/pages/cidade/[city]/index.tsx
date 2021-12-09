@@ -1,9 +1,10 @@
 import Image from 'next/image';
-import { useState } from 'react';
 import { FiAlertCircle, FiCalendar, FiCamera, FiCoffee } from 'react-icons/fi';
-import { AddressBox } from '../../../components/AddressBox';
 
+import { AddressBox } from '../../../components/AddressBox';
 import { Header } from '../../../components/Header';
+import { ListAdresses } from '../../../components/ListAdresses';
+
 import {
   Wrapper,
   ImageContainer,
@@ -21,14 +22,6 @@ import {
   ImageHighLight,
 } from '../../../styles/pages/City';
 import { Container } from '../../../styles/pages/Home';
-import {
-  ContainerAddress,
-  Content,
-  ContentHeader,
-  MenuButton,
-  MenuOptions,
-  NotFoundContainer,
-} from '../../../styles/pages/List';
 
 export default function City(): JSX.Element {
   const test = [
@@ -58,8 +51,6 @@ export default function City(): JSX.Element {
     'Coruripe',
     'Craíbas',
   ];
-  const [selectedInMenu, setSelectedInMenu] = useState(1);
-  const [cities, setCities] = useState(test);
 
   return (
     <Container>
@@ -146,61 +137,24 @@ export default function City(): JSX.Element {
           </ImageHighLight>
         </HighLight>
 
-        <Content>
-          <ContentHeader>
-            <h1>Conheça todos</h1>
-
-            <MenuOptions>
-              <MenuButton
-                type="button"
-                selected={selectedInMenu === 1}
-                onClick={() => setSelectedInMenu(1)}
-              >
-                Todos
-              </MenuButton>
-              <MenuButton
-                type="button"
-                selected={selectedInMenu === 2}
-                onClick={() => setSelectedInMenu(2)}
-              >
-                Pontos Turísticos
-              </MenuButton>
-              <MenuButton
-                type="button"
-                selected={selectedInMenu === 3}
-                onClick={() => setSelectedInMenu(3)}
-              >
-                Comida & Bebida
-              </MenuButton>
-              <MenuButton
-                type="button"
-                selected={selectedInMenu === 4}
-                onClick={() => setSelectedInMenu(4)}
-              >
-                Eventos Organizados
-              </MenuButton>
-            </MenuOptions>
-          </ContentHeader>
-          {cities.length > 0 ? (
-            <ContainerAddress>
-              {cities.map(city => (
-                <AddressBox
-                  title={city}
-                  key={city}
-                  type="info"
-                  city="Salvador"
-                />
-              ))}
-            </ContainerAddress>
-          ) : (
-            <NotFoundContainer>
-              <p>
-                <span>😕</span>
-                Sem resultados. <br /> Tente uma nova busca
-              </p>
-            </NotFoundContainer>
-          )}
-        </Content>
+        <ListAdresses
+          title="Conheça todos"
+          adresses={test}
+          filterButtons={[
+            {
+              name: 'Todos',
+            },
+            {
+              name: 'Pontos Turísticos',
+            },
+            {
+              name: 'Comida & Bebida',
+            },
+            {
+              name: 'Eventos Organizados',
+            },
+          ]}
+        />
       </Wrapper>
     </Container>
   );

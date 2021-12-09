@@ -1,18 +1,9 @@
 import { useEffect, useState } from 'react';
-import { AddressBox } from '../components/AddressBox';
 import { Header } from '../components/Header';
+import { ListAdresses } from '../components/ListAdresses';
 import { useSearch } from '../hooks/useSearch';
-import {
-  Container,
-  Wrapper,
-  Content,
-  ContentHeader,
-  MenuOptions,
-  MenuButton,
-  MenuSelect,
-  ContainerAddress,
-  NotFoundContainer,
-} from '../styles/pages/List';
+
+import { Container, Wrapper } from '../styles/pages/List';
 
 export default function List(): JSX.Element {
   const { search } = useSearch();
@@ -47,7 +38,6 @@ export default function List(): JSX.Element {
 
   const [cities, setCities] = useState(test);
   const [otherCities, setOtherCities] = useState([]);
-  const [selectedInMenu, setSelectedInMenu] = useState(1);
 
   useEffect(() => {
     const filteredCities = test.filter(city => {
@@ -75,55 +65,24 @@ export default function List(): JSX.Element {
     <Container>
       <Header type="SEARCH_BAR" />
       <Wrapper>
-        <Content>
-          <ContentHeader>
-            <h1>Selecione uma cidade</h1>
-
-            <MenuOptions>
-              <MenuButton
-                type="button"
-                selected={selectedInMenu === 1}
-                onClick={() => setSelectedInMenu(1)}
-              >
-                Todas
-              </MenuButton>
-              <MenuButton
-                type="button"
-                selected={selectedInMenu === 2}
-                onClick={() => setSelectedInMenu(2)}
-              >
-                Mais acessadas
-              </MenuButton>
-              <MenuSelect
-                name="order"
-                id="order_by"
-                selected={selectedInMenu === 3}
-                defaultValue="alphabetic"
-              >
-                <option value="alphabetic">A-Z</option>
-                <option value="test">test1</option>
-                <option value="test2">test2</option>
-              </MenuSelect>
-            </MenuOptions>
-          </ContentHeader>
-          {cities.length > 0 ? (
-            <ContainerAddress>
-              {cities.map(city => (
-                <AddressBox title={city} key={city} />
-              ))}
-              {otherCities.map(city => (
-                <AddressBox title={city} key={city} available={false} />
-              ))}
-            </ContainerAddress>
-          ) : (
-            <NotFoundContainer>
-              <p>
-                <span>😕</span>
-                Sem resultados. <br /> Tente uma nova busca
-              </p>
-            </NotFoundContainer>
-          )}
-        </Content>
+        <ListAdresses
+          title="Selecione uma cidade"
+          adresses={cities}
+          unvailableAdresses={otherCities}
+          filterButtons={[
+            {
+              name: 'Todas',
+            },
+            {
+              name: 'Mais acessadas',
+            },
+            {
+              name: 'order',
+              isSelect: true,
+              options: ['A-Z', 'test-1', 'test-2'],
+            },
+          ]}
+        />
       </Wrapper>
     </Container>
   );

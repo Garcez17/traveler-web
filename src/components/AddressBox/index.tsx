@@ -9,25 +9,23 @@ import {
   ImageContainer,
   InfoContainer,
   Info,
-} from '../styles/components/AddressBox';
+} from '../../styles/components/AddressBox';
 
 type AddressBoxProps = {
-  size?: 'home' | 'default';
-  type?: 'default' | 'editable' | 'info';
+  type?: 'default' | 'editable' | 'info' | 'home';
   available?: boolean;
   title: string;
   city?: string;
 };
 
 export function AddressBox({
-  size = 'default',
   type = 'default',
   available = true,
   city,
   title,
 }: AddressBoxProps): JSX.Element {
   return (
-    <Container size={size} type={type} available={available}>
+    <Container isLarge={type === 'home'} type={type} available={available}>
       <Link
         href={type === 'info' ? `/cidade/${city}/${title}` : `/cidade/${title}`}
       >
@@ -42,12 +40,12 @@ export function AddressBox({
             <Image src="/blumenau.png" layout="fill" />
           </ImageContainer>
           <InfoContainer>
-            <Info size={size}>
+            <Info isLarge={type === 'home'}>
               <strong>{title ?? 'Salvador'}</strong>
               {type !== 'info' && <span>98 locais</span>}
             </Info>
             {type === 'info' && (
-              <Info size={size}>
+              <Info isLarge={false}>
                 <span>Comida e Bebida</span>
                 <FiCoffee />
               </Info>
