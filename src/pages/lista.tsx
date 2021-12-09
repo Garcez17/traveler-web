@@ -73,7 +73,7 @@ export default function List(): JSX.Element {
 
   return (
     <Container>
-      <Header actionType="searchBar" />
+      <Header type="SEARCH_BAR" />
       <Wrapper>
         <Content>
           <ContentHeader>

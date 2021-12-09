@@ -7,6 +7,7 @@ import {
   Container,
   Rating,
   ImageContainer,
+  InfoContainer,
   Info,
 } from '../styles/components/AddressBox';
 
@@ -40,16 +41,18 @@ export function AddressBox({
           <ImageContainer>
             <Image src="/blumenau.png" layout="fill" />
           </ImageContainer>
-          <Info size={size}>
-            <strong>{title ?? 'Salvador'}</strong>
-            {type !== 'info' && <span>98 locais</span>}
-          </Info>
-          {type === 'info' && (
+          <InfoContainer>
             <Info size={size}>
-              <span>Comida e Bebida</span>
-              <FiCoffee />
+              <strong>{title ?? 'Salvador'}</strong>
+              {type !== 'info' && <span>98 locais</span>}
             </Info>
-          )}
+            {type === 'info' && (
+              <Info size={size}>
+                <span>Comida e Bebida</span>
+                <FiCoffee />
+              </Info>
+            )}
+          </InfoContainer>
         </a>
       </Link>
     </Container>

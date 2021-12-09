@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import { FiAlertCircle, FiCalendar, FiCamera, FiCoffee } from 'react-icons/fi';
-import { AddressBox } from '../../components/AddressBox';
+import { AddressBox } from '../../../components/AddressBox';
 
-import { Header } from '../../components/Header';
+import { Header } from '../../../components/Header';
 import {
   Wrapper,
   ImageContainer,
@@ -19,8 +19,8 @@ import {
   InfoHighLight,
   IconHighLight,
   ImageHighLight,
-} from '../../styles/pages/City';
-import { Container } from '../../styles/pages/Home';
+} from '../../../styles/pages/City';
+import { Container } from '../../../styles/pages/Home';
 import {
   ContainerAddress,
   Content,
@@ -28,7 +28,7 @@ import {
   MenuButton,
   MenuOptions,
   NotFoundContainer,
-} from '../../styles/pages/List';
+} from '../../../styles/pages/List';
 
 export default function City(): JSX.Element {
   const test = [
@@ -63,7 +63,7 @@ export default function City(): JSX.Element {
 
   return (
     <Container>
-      <Header />
+      <Header type="WITH_INFO" />
       <Wrapper>
         <ImageContainer>
           <Image src="/banner.png" layout="fill" />

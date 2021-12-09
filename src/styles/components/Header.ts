@@ -7,6 +7,7 @@ type ContainerProps = {
 export const Container = styled.header<ContainerProps>`
   width: 100%;
   display: flex;
+  padding: 0 9rem;
   background: ${props => (props.hasBorder ? 'var(--white)' : 'transparent')};
   align-items: center;
   justify-content: center;
@@ -15,7 +16,7 @@ export const Container = styled.header<ContainerProps>`
 `;
 
 export const Wrapper = styled.div`
-  width: 80%;
+  width: 100%;
   height: 6rem;
   max-width: 1280px;
 
@@ -44,13 +45,17 @@ export const RescrictButton = styled.a`
   }
 `;
 
-export const ActionBar = styled.div`
+type ActionBarProps = {
+  alignCenter: boolean;
+};
+
+export const ActionBar = styled.div<ActionBarProps>`
   flex: 1;
   padding: 0 2rem;
 
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: ${props => (props.alignCenter ? 'center' : 'flex-start')};
 
   span {
     margin: 0 auto;
@@ -71,7 +76,7 @@ export const SearchInput = styled.div<SearchInputProps>`
 
   background: var(--background);
   padding: 0.75rem 1rem;
-  border: 1px solid var(--gray-300);
+  border: 1px solid var(--gray-100);
 
   input {
     background: transparent;
@@ -108,12 +113,6 @@ export const SearchInput = styled.div<SearchInputProps>`
       filter: brightness(0.8);
     }
   }
-`;
-
-export const InfoContainer = styled.div`
-  flex: 1;
-
-  display: flex;
 `;
 
 export const BackButton = styled.button`

@@ -29,6 +29,11 @@ export const ImageContainer = styled.div`
   position: relative;
 `;
 
+export const InfoContainer = styled.section`
+  flex: 1;
+  padding: 0.5rem 0;
+`;
+
 type InfoProps = {
   size: 'home' | 'default';
 };
