@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { AiFillStar } from 'react-icons/ai';
 import { BsWhatsapp } from 'react-icons/bs';
 import { FiCoffee } from 'react-icons/fi';
@@ -24,8 +24,13 @@ import {
   LocalImageContainer,
   Badge,
 } from '../../../styles/pages/Local';
+import { ModalContainer } from '../../../components/Modal';
+import { AddCommentModal } from '../../../components/Modal/AddComment';
 
 export default function Local(): JSX.Element {
+  const [modalAddCommentIsOpen, setModalAddCommentIsOpen] = useState(true);
+  const [modalViewCommentIsOpen, setModalViewCommentIsOpen] = useState(false);
+
   const Map = useMemo(
     () =>
       dynamic(
@@ -41,6 +46,13 @@ export default function Local(): JSX.Element {
 
   return (
     <Container>
+      {/* {modalViewCommentIsOpen && <ModalContainer />} */}
+      {modalAddCommentIsOpen && (
+        <AddCommentModal
+          isOpen={modalAddCommentIsOpen}
+          onRequestClose={() => setModalAddCommentIsOpen(false)}
+        />
+      )}
       <Content>
         <Header type="BACK" />
         <Wrapper>
@@ -123,8 +135,18 @@ export default function Local(): JSX.Element {
               </div>
 
               <div>
-                <button type="button">Adicionar</button>
-                <button type="button">Ver todas</button>
+                <button
+                  type="button"
+                  onClick={() => setModalAddCommentIsOpen(true)}
+                >
+                  Adicionar
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setModalViewCommentIsOpen(true)}
+                >
+                  Ver todas
+                </button>
               </div>
             </Title>
             <CommentsContainer>

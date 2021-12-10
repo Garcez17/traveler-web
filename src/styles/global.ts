@@ -45,8 +45,9 @@ export default createGlobalStyle`
     text-decoration: none;
   }
 
-  input {
+  input, textarea {
     font: 400 1rem 'Heebo', sans-serif;
+    color: var(--gray-500);
   }
 
   input:-webkit-autofill,
@@ -72,6 +73,20 @@ export default createGlobalStyle`
     :hover {
       background: var(--gray-500);
     }
+  }
+
+  .react-modal-overlay {
+    background: rgba(18, 57, 82, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(3px);
+    z-index: 1000;
   }
 
   @media (max-width: 1080px) {
