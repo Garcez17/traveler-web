@@ -7,6 +7,8 @@ import { FiCoffee } from 'react-icons/fi';
 import { Comment } from '../../../components/Comment';
 
 import { Header } from '../../../components/Header';
+import { AddCommentModal } from '../../../components/Modal/AddComment';
+import { ViewCommentsModal } from '../../../components/Modal/ViewComments';
 
 import {
   Container,
@@ -24,12 +26,15 @@ import {
   LocalImageContainer,
   Badge,
 } from '../../../styles/pages/Local';
-import { ModalContainer } from '../../../components/Modal';
-import { AddCommentModal } from '../../../components/Modal/AddComment';
 
 export default function Local(): JSX.Element {
-  const [modalAddCommentIsOpen, setModalAddCommentIsOpen] = useState(true);
+  const [modalAddCommentIsOpen, setModalAddCommentIsOpen] = useState(false);
   const [modalViewCommentIsOpen, setModalViewCommentIsOpen] = useState(false);
+
+  function handleOpenAddCommentModal() {
+    setModalViewCommentIsOpen(false);
+    setModalAddCommentIsOpen(true);
+  }
 
   const Map = useMemo(
     () =>
@@ -46,7 +51,13 @@ export default function Local(): JSX.Element {
 
   return (
     <Container>
-      {/* {modalViewCommentIsOpen && <ModalContainer />} */}
+      {modalViewCommentIsOpen && (
+        <ViewCommentsModal
+          isOpen={modalViewCommentIsOpen}
+          onRequestClose={() => setModalViewCommentIsOpen(false)}
+          openAddCommentModal={handleOpenAddCommentModal}
+        />
+      )}
       {modalAddCommentIsOpen && (
         <AddCommentModal
           isOpen={modalAddCommentIsOpen}

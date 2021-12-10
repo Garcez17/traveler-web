@@ -8,8 +8,11 @@ import {
   Title,
   Stars,
 } from '../../styles/components/Comment/styles';
+import { CommentProps } from './interface';
 
-export function Comment(): JSX.Element {
+export function Comment({
+  positionStars = 'title',
+}: CommentProps): JSX.Element {
   return (
     <Container>
       <PhotoContainer>
@@ -18,6 +21,22 @@ export function Comment(): JSX.Element {
       <Content>
         <Title>
           <strong>Maria Eduarda</strong>
+
+          {positionStars === 'title' && (
+            <Stars>
+              <AiFillStar />
+              <AiFillStar />
+              <AiFillStar />
+              <AiFillStar />
+              <AiFillStar />
+            </Stars>
+          )}
+        </Title>
+        <p>
+          Todos os produtos comercializados são de excelente qualidade,
+          recomendo!
+        </p>
+        {positionStars === 'footer' && (
           <Stars>
             <AiFillStar />
             <AiFillStar />
@@ -25,11 +44,7 @@ export function Comment(): JSX.Element {
             <AiFillStar />
             <AiFillStar />
           </Stars>
-        </Title>
-        <p>
-          Todos os produtos comercializados são de excelente qualidade,
-          recomendo!
-        </p>
+        )}
       </Content>
     </Container>
   );

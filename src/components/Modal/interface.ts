@@ -1,12 +1,16 @@
 import { ReactNode } from 'react';
 
-export type ModalContainerProps = {
-  children: ReactNode;
+type ModalProps = {
   isOpen: boolean;
   onRequestClose: () => void;
 };
 
-export type AddCommentModalProps = {
-  isOpen: boolean;
-  onRequestClose: () => void;
+export type ModalContainerProps = ModalProps & {
+  children: ReactNode;
+};
+
+export type AddCommentModalProps = ModalProps;
+
+export type ViewCommentsModalProps = ModalProps & {
+  openAddCommentModal?: () => void;
 };

@@ -1,4 +1,4 @@
-import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
+import { AiOutlineStar } from 'react-icons/ai';
 import { FiAlertCircle, FiX } from 'react-icons/fi';
 
 import { ModalContainer } from '.';

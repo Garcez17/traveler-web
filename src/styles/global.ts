@@ -38,6 +38,12 @@ export default createGlobalStyle`
   button {
     cursor: pointer;
     font-family: 'Heebo';
+
+    transition: filter 0.2s;
+
+    :hover {
+      filter: brightness(0.9);
+    }
   }
 
   a {
