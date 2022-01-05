@@ -4,6 +4,7 @@ import { FiAlertCircle, FiCalendar, FiCamera, FiCoffee } from 'react-icons/fi';
 import { AddressBox } from '../../../components/AddressBox';
 import { Header } from '../../../components/Header';
 import { ListAdresses } from '../../../components/ListAdresses';
+import { ContainerAddress } from '../../../styles/components/ListAdresses/styles';
 
 import {
   Wrapper,
@@ -154,7 +155,13 @@ export default function City(): JSX.Element {
               name: 'Eventos Organizados',
             },
           ]}
-        />
+        >
+          <ContainerAddress>
+            {test.map(city => (
+              <AddressBox title={city} key={city} type="info" />
+            ))}
+          </ContainerAddress>
+        </ListAdresses>
       </Wrapper>
     </Container>
   );

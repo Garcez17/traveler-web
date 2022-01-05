@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { FilterButton } from '../MenuFilters/interface';
 
 export type ListAdressesProps = {
@@ -5,4 +6,5 @@ export type ListAdressesProps = {
   filterButtons: FilterButton[];
   adresses: any[];
   unvailableAdresses?: any[];
+  children: ReactNode;
 };

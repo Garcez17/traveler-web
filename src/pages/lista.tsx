@@ -1,7 +1,12 @@
 import { useEffect, useState } from 'react';
+import { AddressBox } from '../components/AddressBox';
 import { Header } from '../components/Header';
 import { ListAdresses } from '../components/ListAdresses';
 import { useSearch } from '../hooks/useSearch';
+import {
+  ContainerAddress,
+  NotFoundContainer,
+} from '../styles/components/ListAdresses/styles';
 
 import { Container, Wrapper } from '../styles/pages/List';
 
@@ -82,7 +87,25 @@ export default function List(): JSX.Element {
               options: ['A-Z', 'test-1', 'test-2'],
             },
           ]}
-        />
+        >
+          {cities.length > 0 ? (
+            <ContainerAddress>
+              {cities.map(city => (
+                <AddressBox title={city} key={city} />
+              ))}
+              {otherCities.map(city => (
+                <AddressBox title={city} key={city} available={false} />
+              ))}
+            </ContainerAddress>
+          ) : (
+            <NotFoundContainer>
+              <p>
+                <span>😕</span>
+                Sem resultados. <br /> Tente uma nova busca
+              </p>
+            </NotFoundContainer>
+          )}
+        </ListAdresses>
       </Wrapper>
     </Container>
   );

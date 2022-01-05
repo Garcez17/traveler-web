@@ -16,6 +16,7 @@ export function ListAdresses({
   unvailableAdresses = [],
   title,
   filterButtons,
+  children,
 }: ListAdressesProps): JSX.Element {
   const [selectedInMenu, setSelectedInMenu] = useState(0);
 
@@ -30,23 +31,7 @@ export function ListAdresses({
           buttons={filterButtons}
         />
       </ContentHeader>
-      {adresses.length > 0 ? (
-        <ContainerAddress>
-          {adresses.map(city => (
-            <AddressBox title={city} key={city} />
-          ))}
-          {unvailableAdresses.map(city => (
-            <AddressBox title={city} key={city} available={false} />
-          ))}
-        </ContainerAddress>
-      ) : (
-        <NotFoundContainer>
-          <p>
-            <span>😕</span>
-            Sem resultados. <br /> Tente uma nova busca
-          </p>
-        </NotFoundContainer>
-      )}
+      {children}
     </Container>
   );
 }
