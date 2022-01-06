@@ -40,8 +40,9 @@ export const Presentation = styled.div`
 export const Cities = styled.div`
   flex: 1;
 
+  display: flex;
+
   position: relative;
-  justify-content: flex-end;
 `;
 
 type ColumnProps = {
@@ -50,6 +51,7 @@ type ColumnProps = {
 
 export const Column = styled.div<ColumnProps>`
   display: flex;
+  width: 50%;
   flex-direction: column;
   gap: 2rem;
   position: absolute;

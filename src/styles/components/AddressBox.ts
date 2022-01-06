@@ -7,7 +7,7 @@ type ContainerProps = {
 };
 
 export const Container = styled.div<ContainerProps>`
-  width: ${props => (props.isLarge ? '19rem' : '16rem')};
+  max-width: ${props => (props.isLarge ? '19rem' : '16rem')};
   opacity: ${props => (props.available ? '1' : '0.5')};
   cursor: pointer;
   position: relative;
