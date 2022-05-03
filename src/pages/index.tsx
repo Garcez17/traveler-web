@@ -39,7 +39,6 @@ export default function Home(): JSX.Element {
             <AddressBox type="home" />
             <AddressBox type="home" />
             <AddressBox type="home" />
-            <AddressBox type="home" />
           </Column>
         </Cities>
       </Main>

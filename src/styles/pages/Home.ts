@@ -12,16 +12,17 @@ export const Container = styled.div`
 export const Main = styled.main`
   flex: 1;
   display: flex;
-  gap: 2rem;
+  gap: 9rem;
   width: 80%;
   max-width: 1280px;
 `;
 
 export const Presentation = styled.div`
-  width: 40%;
+  width: 30%;
+  height: 100vh;
   display: flex;
+  margin-top: 5%;
   flex-direction: column;
-  justify-content: center;
 
   h1 {
     color: var(--blue-800);
@@ -39,10 +40,8 @@ export const Presentation = styled.div`
 
 export const Cities = styled.div`
   flex: 1;
-
   display: flex;
-
-  position: relative;
+  gap: 2rem;
 `;
 
 type ColumnProps = {
@@ -54,47 +53,10 @@ export const Column = styled.div<ColumnProps>`
   width: 50%;
   flex-direction: column;
   gap: 2rem;
-  position: absolute;
 
   ${props =>
     props.position === 'right' &&
     css`
-      right: 0;
-      top: 5rem;
+      margin-top: 5rem;
     `}
-`;
-
-export const City = styled.div`
-  width: 19rem;
-  height: 19.8rem;
-
-  display: flex;
-  flex-direction: column;
-  background: var(--white);
-  border-radius: 1rem;
-  border: 1px solid var(--gray-100);
-
-  img {
-    border-radius: 1rem 1rem 0 0;
-  }
-`;
-
-export const Info = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 6rem;
-  gap: 0.5rem;
-  padding: 0 2rem;
-
-  justify-content: center;
-
-  strong {
-    font-weight: 600;
-    font-size: 1.5rem;
-    color: var(--blue-800);
-  }
-
-  span {
-    font-family: Roboto, sans-serif;
-  }
 `;
